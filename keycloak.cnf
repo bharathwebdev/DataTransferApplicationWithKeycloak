@@ -1,0 +1,42 @@
+[ req ]
+default_bits        = 2048
+default_keyfile     = server-key.pem
+distinguished_name  = req_distinguished_name
+req_extensions      = extensions
+x509_extensions     = extensions
+string_mask         = utf8only
+
+[ req_distinguished_name ]
+countryName         = IN
+countryName_default     = IN
+
+stateOrProvinceName     = tamilnadu
+stateOrProvinceName_default = NY
+
+localityName            = chennai
+localityName_default        = New York
+
+organizationName         = Organization Name (eg, company)
+organizationName_default    = Example, LLC
+
+commonName          = localhost
+commonName_default      = Example, LLC
+
+emailAddress            = Email Address
+emailAddress_default        = test@example.com
+
+[ extensions ]
+
+subjectKeyIdentifier        = hash
+authorityKeyIdentifier  = keyid,issuer
+
+basicConstraints        = CA:FALSE
+keyUsage            = nonRepudiation, digitalSignature, keyEncipherment
+extendedKeyUsage    = serverAuth
+subjectAltName          = @alternate_names
+nsComment           = "OpenSSL Generated Certificate"
+
+[ alternate_names ]
+
+DNS.1       = localhost
+DNS.2       = keycloak
